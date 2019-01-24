@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      function valid(form){
+       var name = form.name.value;
+       var email = form.email.value;
+       var fail = false;
+       var password = form.password.value;
+       var RePassword = form.RePassword.value;
+       var state = form.state.value;
+
+
+      //  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var re = /[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}/i;
+
+
+        if(name == "" || name == " ")
+          fail = "Вы не ввели свое имя";
+          else if(email.split('@').length -1==0 )
+            fail = "Вы не ввели email";
+  //      else if(re.test(email) == false )
+  //        fail = "Вы не ввели email";
+        else if(password == "" )
+          fail = "Вы не ввели password";
+        else if(password != RePassword )
+          fail = " password is not true";
+        else if(state == "")
+          fail = " Введите свой пол";
+        if(fail)
+          alert(fail);
+        else
+        window.location = "http://google.com";
+      }
+
+    </script>
+
+  </head>
+  <body>
+    <form  action="" method="post" name="test" id="form">
+      <label for="name">Имя:</label>
+      <input type="text" name="name" value="" placeholder="Имя" id="name"><br><br>
+
+      <label for="email">Email</label>
+      <input type="text" name="email" value="" placeholder="Email" id="email"><br><br>
+
+      <label for="password">Пароль:</label>
+      <input type="password" name="password" value="" placeholder="Пароль" id="password"><br><br>
+      <label for="RePassword">Проверка пароль:</label>
+      <input type="password" name="RePassword" value="" placeholder="Пароль" id="RePassword"><br><br>
+      <span>Пол</span>
+
+      <input type="radio" name="state" value="Мужской" id="male">
+      <label for="male">Мужской</label>
+
+      <input type="radio" name="state" value="Женский" id="famale">
+      <label for="famale">Женский</label>
+
+      <input type="button" onclick="valid(document.getElementById('form'))" name="submit" value="Готово">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function btClick (){
+      alert("You are click on this buton");
+    }
+    var counter = 0;
+    function Onmouscounter(element){
+      counter ++;
+      element.innerHTML = "This text was write " +  counter  + " times";
+    }
+    </script>
+
+  </head>
+  <body>
+<input type="button" name="b" value="Click me" onclick="btClick (this)">
+<span onmouseover="Onmouscounter(this)">This text was write 0 times</span>
+  </body>
+</html>
